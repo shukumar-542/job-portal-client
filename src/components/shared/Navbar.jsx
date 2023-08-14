@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { Bars4Icon, XMarkIcon } from '@heroicons/react/24/solid'
 import { useState } from "react";
-
+import { BiUserCircle } from 'react-icons/bi';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -53,9 +53,9 @@ const Navbar = () => {
                         <img className='rounded-full' alt="" />
                     </div>
 
-                     <button  className='btn bg-white hidden py-2 lg:block text-blue-600 border-none'>logOut</button>
+                     {/* <button  className='btn bg-white hidden py-2 lg:block text-blue-600 border-none'>logOut</button> */}
                         <Link to='/login' className='hidden lg:block'>
-                            <button className='px-3 font-semibold py-2 bg-white text-blue-600 border-none '>Login</button>
+                            <button className='px-3 font-semibold py-2 bg-white  border border-gray-400  flex items-center gap-2'><BiUserCircle></BiUserCircle> Login</button>
                         </Link>
                 </div>
 
