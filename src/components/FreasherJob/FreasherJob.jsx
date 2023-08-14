@@ -15,7 +15,7 @@ const FreasherJob = () => {
             <div className="p-10 max-w-7xl mx-auto">
                 <h1 className="text-2xl font-semibold font-serif my-10 "><span className="text-[#00A7AC]">Fresher</span> Jobs</h1>
 
-                <div className="grid grid-cols-3 gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     {
                         fresherJobs.map(fresherJob => <SingleJob fresherJob={fresherJob} key={fresherJob._id}></SingleJob>)
                     } 

@@ -14,10 +14,12 @@ const SingleExprienceJob = ({ experienceJob }) => {
                 <p className="flex items-center gap-2"><ImLocation2></ImLocation2> {location}</p>
                 <p className="flex items-center gap-2"><ImLocation2></ImLocation2>{category}</p>
             </div>
-            <div className='flex gap-5'>
+            <div className='flex items-center gap-5'>
                 <img src={img} className='w-10 h-10' alt="" />
-                <p>{companyName}</p>
+                <p className='font-semibold font-serif'>{companyName}</p>
             </div>
+            <button className="mt-5 text-[#00A7AC] btn-primary">Apply Now</button>
+
         </div>
     );
 };

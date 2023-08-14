@@ -15,10 +15,12 @@ const JobPost = () => {
         const companyName = e.target.companyName.value;
         const experience = e.target.experience.value;
         const location = e.target.location.value
+        const salary = e.target.salary.value
+        const vacancy = e.target.vacancy.value
         const img = e.target.logo.value;
         const description= e.target.description.value;
 
-        const data = {title, category,companyName,location,experience,img,description};
+        const data = {title, category,companyName,location,salary,vacancy,experience,img,description};
         console.log(data);
         fetch('http://localhost:5000/jobPost', {
             method: "POST",
@@ -77,6 +79,23 @@ const JobPost = () => {
                                 <span className="label-text">Location*</span>
                             </label>
                             <input type="text" name="location" placeholder="Badda, Dhaka" className="input input-bordered w-full" />
+
+                        </div>
+
+                    </div>
+                    <div className="grid grid-cols-2 gap-5 my-5">
+                        <div className="form-control w-full  ">
+                            <label className="label">
+                                <span className="label-text">Salary*</span>
+                            </label>
+                            <input type="text" name="salary" placeholder="$2000" className="input input-bordered w-full" />
+
+                        </div>
+                        <div className="form-control w-full  ">
+                            <label className="label">
+                                <span className="label-text">vacancy*</span>
+                            </label>
+                            <input type="text" name="vacancy" placeholder="07 Person" className="input input-bordered w-full" />
 
                         </div>
 
