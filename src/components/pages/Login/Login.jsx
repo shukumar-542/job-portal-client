@@ -1,41 +1,44 @@
-import {  useState } from "react";
+import {  useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 
 const Login = () => {
-    // const [error, setError] = useState('')
+    const [error, setError] = useState('')
+    const { createUserWithGoogle,  loggedInUser } = useContext(AuthContext);
 
-    // const location = useLocation();
-    // const from = location.state?.from?.pathname || '/';
-    // const navigate = useNavigate()
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    const navigate = useNavigate()
 
 
     const handleGoogleLogin = () => {
         console.log('click handle google');
-        // createUserWithGoogle()
-        //     .then(result => {
-        //         const user = result.user;
-        //         savedUser(user)
-        //         navigate(from)
-        //         // console.log(user);
-        //         Swal.fire({
-        //             title: 'Login Successfully',
-        //             showClass: {
-        //               popup: 'animate__animated animate__fadeInDown'
-        //             },
-        //             hideClass: {
-        //               popup: 'animate__animated animate__fadeOutUp'
-        //             }
-        //           })
-        //     })
-        //     .catch(error => {
-        //         const errorMessage = error.message;
-        //         console.log(errorMessage);
-        //         setError(errorMessage)
-        //     })
+        createUserWithGoogle()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                // savedUser(user)
+                navigate(from)
+                // console.log(user);
+                Swal.fire({
+                    title: 'Login Successfully',
+                    showClass: {
+                      popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                      popup: 'animate__animated animate__fadeOutUp'
+                    }
+                  })
+            })
+            .catch(error => {
+                const errorMessage = error.message;
+                console.log(errorMessage);
+                setError(errorMessage)
+            })
     }
 
  
@@ -44,28 +47,28 @@ const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data);
-        // loggedInUser(data.email, data.password)
-        //     .then(result => {
-        //         const user = result.user;
-        //         savedUser(user)
-        //         navigate(from)
-        //         // setSuccess('user Logged in successfully')
-        //         Swal.fire({
-        //             title: 'Login Successfully',
-        //             showClass: {
-        //               popup: 'animate__animated animate__fadeInDown'
-        //             },
-        //             hideClass: {
-        //               popup: 'animate__animated animate__fadeOutUp'
-        //             }
-        //           })
-        //         console.log(user);
-        //     })
-        //     .catch(error => {
-        //         const errorMessage = error.message;
-        //         console.log(errorMessage);
-        //         setError(errorMessage)
-        //     })
+        loggedInUser(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                // savedUser(user)
+                navigate(from)
+                // setSuccess('user Logged in successfully')
+                Swal.fire({
+                    title: 'Login Successfully',
+                    showClass: {
+                      popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                      popup: 'animate__animated animate__fadeOutUp'
+                    }
+                  })
+                console.log(user);
+            })
+            .catch(error => {
+                const errorMessage = error.message;
+                console.log(errorMessage);
+                setError(errorMessage)
+            })
     };
     const [passwordVisible, setPasswordVisible] = useState(false);
 
@@ -95,10 +98,10 @@ const Login = () => {
                 {errors.exampleRequired && <span>This field is required</span>}
 
                 <input className='btn-primary w-1/2' type="submit" />
-                <p>Do Not Have an Account? <Link to="/register"  className='text-blue-600 underline'>Register</Link></p>
+                <p>Do nt Have an Account? <Link to="/register"  className='text-blue-600 underline'>Register</Link></p>
             </form>
             <div className='text-center my-2 text-red-500'>
-                {/* {error} */}
+                {error}
             </div>
             <div className='flex flex-col w-1/2 mx-auto space-y-2  mt-10'>
                 <button onClick={handleGoogleLogin} className='border cursor-pointer border-blue-600 px-8 py-2 rounded-lg hover:bg-blue-500 '>Login With Google</button>
