@@ -1,10 +1,24 @@
 import { Link, NavLink } from "react-router-dom";
 import { Bars4Icon, XMarkIcon } from '@heroicons/react/24/solid'
-import { useState } from "react";
-import { BiUserCircle } from 'react-icons/bi';
+import { useContext, useState } from "react";
+import { BiUserCircle , } from 'react-icons/bi';
+import { AiOutlineLogout , } from 'react-icons/ai';
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const {user, logOut} = useContext(AuthContext)
+
+    const handleLogOUt = () => {
+        logOut()
+            .then(() => {
+                console.log('logOut Successfully');
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
 
     return (
         <div className='sticky top-0  bg-[#E1EEFF]   shadow-md z-10 '>
@@ -49,15 +63,15 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex items-center" >
-                   <div className="w-10 mr-2 rounded-full tooltip tooltip-bottom">
-                        <img className='rounded-full' alt="" />
-                    </div>
+                        {user && <div className="w-10 mr-2 rounded-full tooltip tooltip-bottom">
+                            <img src={user.photoURL} className='rounded-full' alt="" />
+                        </div>}
 
-                     {/* <button  className='btn bg-white hidden py-2 lg:block text-blue-600 border-none'>logOut</button> */}
-                        <Link to='/login' className='hidden lg:block'>
-                            <button className='px-3 font-semibold py-2 bg-white  border border-gray-400  flex items-center gap-2'><BiUserCircle></BiUserCircle> Login</button>
-                        </Link>
-                </div>
+                        {user ? <button onClick={handleLogOUt} className='btn bg-white hidden lg:block '> <AiOutlineLogout></AiOutlineLogout> </button>
+                            : <Link to='/login' className='hidden lg:block'>
+                                <button className='px-3 font-semibold py-2 bg-white  border-none flex items-center gap-2'><BiUserCircle></BiUserCircle> Login</button>
+                            </Link>}
+                    </div>
 
 
 
