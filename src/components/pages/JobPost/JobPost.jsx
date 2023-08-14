@@ -14,10 +14,11 @@ const JobPost = () => {
         const category = selectedValue;
         const companyName = e.target.companyName.value;
         const experience = e.target.experience.value;
+        const location = e.target.location.value
         const img = e.target.logo.value;
         const description= e.target.description.value;
 
-        const data = {title, category,companyName,experience,img,description};
+        const data = {title, category,companyName,location,experience,img,description};
         console.log(data);
         fetch('http://localhost:5000/jobPost', {
             method: "POST",

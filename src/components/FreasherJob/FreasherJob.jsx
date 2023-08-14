@@ -18,10 +18,7 @@ const FreasherJob = () => {
                 <div className="grid grid-cols-3 gap-10">
                     {
                         fresherJobs.map(fresherJob => <SingleJob fresherJob={fresherJob} key={fresherJob._id}></SingleJob>)
-                    }
-                    
-                    
-                    
+                    } 
                 </div>
 
             </div>
