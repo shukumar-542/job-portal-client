@@ -22,7 +22,6 @@ const Home = () => {
             <TopITCompany></TopITCompany>
             <MyProfile></MyProfile>
             <Blog></Blog>
-            <AnimateBtn></AnimateBtn>
         </div>
     );
 };
