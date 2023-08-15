@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import FreasherJob from "../../FreasherJob/FreasherJob";
 import ExperienceJob from "../../ExperienceJob/ExperienceJob";
 import TopITCompany from "../../TopITCompany/TopITCompany";
+import Blog from "../../Blog/Blog";
 
 const Home = () => {
     return (
@@ -10,6 +11,7 @@ const Home = () => {
             <FreasherJob></FreasherJob>
             <ExperienceJob></ExperienceJob>
             <TopITCompany></TopITCompany>
+            <Blog></Blog>
         </div>
     );
 };

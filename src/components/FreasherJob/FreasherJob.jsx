@@ -9,7 +9,12 @@ const FreasherJob = () => {
             .then(res => res.json())
             .then(data => setFresherJobs(data))
     }, [])
-    console.log(fresherJobs);
+    const handleAllFresherjobs = () =>{
+        fetch('http://localhost:5000/AllFresherJobs')
+        .then(res => res.json())
+        .then(data => setFresherJobs(data))
+    }
+    // console.log(fresherJobs);
     return (
         <div className="bg-[#F8F8F8] ">
             <div className="p-10 max-w-7xl mx-auto">
@@ -18,7 +23,10 @@ const FreasherJob = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     {
                         fresherJobs.map(fresherJob => <SingleJob fresherJob={fresherJob} key={fresherJob._id}></SingleJob>)
-                    } 
+                    }
+                </div>
+                <div className="flex justify-center mt-10">
+                    <button className="btn-primary" onClick={()=>handleAllFresherjobs()}>See All Jobs</button>
                 </div>
 
             </div>

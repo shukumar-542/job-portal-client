@@ -2,11 +2,16 @@
 import { ImLocation2 } from 'react-icons/im';
 
 
+
 // eslint-disable-next-line react/prop-types
 const TopSingleIt = ({ topBdIt }) => {
     // eslint-disable-next-line react/prop-types
     const { companyName, img, vacancy, location, category } = topBdIt
-    // const { companyName, img, vacancy, location, category } = topForeignIt
+   
+
+    const handleCompanyDetails = (topBdIt) => {
+        console.log(topBdIt);
+    }
     return (
         <div className="space-y-10 bg-[#E5F6F7] transition duration-500 shadow-md  rounded-md  border pl-10 pr-2 py-10 hover:border-[#00A7AC]">
             <div >
@@ -20,7 +25,7 @@ const TopSingleIt = ({ topBdIt }) => {
                 <p className="flex items-center gap-2"><ImLocation2></ImLocation2>{category}</p>
             </div>
             <div className='flex items-center gap-10'>
-                <button className='btn-primary'>View Details</button>
+                <button className='btn-primary' onClick={() => handleCompanyDetails(topBdIt)}>View Details</button>
                 <p > <span className='font-semibold font-serif'>Vacancy : </span> {vacancy}</p>
             </div>
 
