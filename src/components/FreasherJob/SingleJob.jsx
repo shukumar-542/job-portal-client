@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import Button from '../Button/Button';
 
 // eslint-disable-next-line react/prop-types
 const SingleJob = ({fresherJob}) => {
@@ -19,7 +20,7 @@ const SingleJob = ({fresherJob}) => {
         console.log(fresherJob);
         if (user && user.email) {
             const appliedJobItem = { job_id: fresherJob._id, title,category, email: user.email }
-            fetch('http://localhost:5000/appliedJob', {
+            fetch('https://job-portal-server-tau.vercel.app/appliedJob', {
                 method: 'POST',
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(appliedJobItem)
@@ -76,7 +77,7 @@ const SingleJob = ({fresherJob}) => {
                                 <p className='flex items-center gap-2 '> <BiRightArrow className=' text-[#00A7AC]'></BiRightArrow> Vacancy : <span className='font-semibold'>{vacancy}</span>/ Person</p>
                                 <p className="flex items-center gap-2"><ImLocation2 className="text-xl text-[#00A7AC]"></ImLocation2> {location}</p>
                             </div>
-                        <button className="mt-5 text-[#00A7AC] btn-primary" onClick={()=> handleApply(fresherJob)} >Apply Now</button>
+                        <button className="mt-5 " onClick={()=> handleApply(fresherJob)} ><Button text={'Apply Now'}></Button></button>
                         </div>
                     </div>
     );

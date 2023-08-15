@@ -12,10 +12,8 @@ const Banner = () => {
                  
                         <button className="bg-[#007AFF] py-4 px-1 md:px-5 rounded-md text-xl font-serif  font-semibold text-white">Subscribed</button>
                     
-             
                 </div>
 
-                
             </div>
         </div>
     );

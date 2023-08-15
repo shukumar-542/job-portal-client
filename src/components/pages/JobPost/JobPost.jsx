@@ -22,7 +22,7 @@ const JobPost = () => {
 
         const data = {title, category,companyName,location,salary,vacancy,experience,img,description};
         console.log(data);
-        fetch('http://localhost:5000/jobPost', {
+        fetch('https://job-portal-server-tau.vercel.app/jobPost', {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data)

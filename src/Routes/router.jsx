@@ -5,6 +5,7 @@ import Login from "../components/pages/Login/Login";
 import Register from "../components/pages/Register/Register";
 import JobPost from "../components/pages/JobPost/JobPost";
 import About from "../components/pages/About/About";
+import ContactUS from "../components/ContactUS/ContactUS";
 
 export const router = createBrowserRouter([
     {
@@ -26,6 +27,9 @@ export const router = createBrowserRouter([
         },
         {
           path : 'about', element  : <About></About>
+        },
+        {
+          path : 'contact', element  : <ContactUS></ContactUS>
         }
       ]
       

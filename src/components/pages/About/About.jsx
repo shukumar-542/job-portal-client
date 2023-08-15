@@ -6,7 +6,7 @@ import SubScribed from './SubScribed';
 const About = () => {
     return (
         <div className="">
-            <h1>This is about</h1>
+           
 
             <div className="bg-[#F6F9FC] my-10">
                 <div className="max-w-7xl mx-auto grid grid-cols-1  md:grid-cols-2 gap-10 py-10">

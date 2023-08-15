@@ -3,6 +3,7 @@ import { ImLocation2 } from 'react-icons/im';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Button from '../Button/Button';
 
 // eslint-disable-next-line react/prop-types, no-unused-vars
 const SingleExprienceJob = ({ experienceJob }) => {
@@ -17,7 +18,7 @@ const SingleExprienceJob = ({ experienceJob }) => {
         console.log(fresherJob);
         if (user && user.email) {
             const appliedJobItem = { job_id: fresherJob._id, title,category, email: user.email }
-            fetch('http://localhost:5000/appliedJob', {
+            fetch('https://job-portal-server-tau.vercel.app/appliedJob', {
                 method: 'POST',
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(appliedJobItem)
@@ -63,7 +64,7 @@ const SingleExprienceJob = ({ experienceJob }) => {
                 <img src={img} className='w-10 h-10' alt="" />
                 <p className='font-semibold font-serif'>{companyName}</p>
             </div>
-            <button className="mt-5 text-[#00A7AC] btn-primary" onClick={()=>handleApply(experienceJob)}>Apply Now</button>
+            <button className="" onClick={()=>handleApply(experienceJob)}><Button text={'Apply Now'}></Button></button>
 
         </div>
     );

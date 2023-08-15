@@ -5,12 +5,12 @@ const TopITCompany = () => {
     const [topBdIts, setTopBdIts] = useState([])
     const [topForeignIts, setTopForeignIts] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/top-company')
+        fetch('https://job-portal-server-tau.vercel.app/top-company')
         .then(res => res.json())
         .then(data => setTopBdIts(data))
     },[])
     useEffect(()=>{
-        fetch('http://localhost:5000/foreign-top-company')
+        fetch('https://job-portal-server-tau.vercel.app/foreign-top-company')
         .then(res => res.json())
         .then(data => setTopForeignIts(data))
     },[])

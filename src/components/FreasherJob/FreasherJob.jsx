@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 
 import SingleJob from "./SingleJob";
+import Button from "../Button/Button";
 
 const FreasherJob = () => {
     const [fresherJobs, setFresherJobs] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/fresher')
+        fetch('https://job-portal-server-tau.vercel.app/fresher')
             .then(res => res.json())
             .then(data => setFresherJobs(data))
     }, [])
     const handleAllFresherjobs = () =>{
-        fetch('http://localhost:5000/AllFresherJobs')
+        fetch('https://job-portal-server-tau.vercel.app/AllFresherJobs')
         .then(res => res.json())
         .then(data => setFresherJobs(data))
     }
@@ -26,7 +27,7 @@ const FreasherJob = () => {
                     }
                 </div>
                 <div className="flex justify-center mt-10">
-                    <button className="btn-primary" onClick={()=>handleAllFresherjobs()}>See All Jobs</button>
+                    <button  onClick={()=>handleAllFresherjobs()}><Button text={'See All Jobs'}></Button></button>
                 </div>
 
             </div>
