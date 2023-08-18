@@ -1,20 +1,14 @@
+/* eslint-disable react/prop-types */
 import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
+import { Fragment, } from 'react'
 
-export default function MyModal() {
-  let [isOpen, setIsOpen] = useState(true)
-
-  function closeModal() {
-    setIsOpen(false)
-  }
-
-  function openModal() {
-    setIsOpen(true)
-  }
+// eslint-disable-next-line react/prop-types
+export default function MyModal({isOpen,topBdIt, closeModal}) {
+  console.log(topBdIt);
 
   return (
     <>
-      <div className="fixed inset-0 flex items-center justify-center">
+      {/* <div className="fixed inset-0 flex items-center justify-center">
         <button
           type="button"
           onClick={openModal}
@@ -22,7 +16,8 @@ export default function MyModal() {
         >
           Open dialog
         </button>
-      </div>
+      </div> */}
+      
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -54,7 +49,7 @@ export default function MyModal() {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Payment successful
+                    {topBdIt.companyName}
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">

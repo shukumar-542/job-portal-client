@@ -7,7 +7,6 @@ import Button from '../Button/Button';
 
 // eslint-disable-next-line react/prop-types, no-unused-vars
 const SingleExprienceJob = ({ experienceJob }) => {
-    console.log(experienceJob);
     // eslint-disable-next-line react/prop-types
     const {category,companyName,location,description,img,title} = experienceJob
 

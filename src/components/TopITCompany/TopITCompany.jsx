@@ -3,7 +3,10 @@ import TopSingleIt from "./TopSingleIt";
 
 const TopITCompany = () => {
     const [topBdIts, setTopBdIts] = useState([])
-    const [topForeignIts, setTopForeignIts] = useState([])
+    const [topForeignIts, setTopForeignIts] = useState([]);
+
+  
+
     useEffect(()=>{
         fetch('https://job-portal-server-tau.vercel.app/top-company')
         .then(res => res.json())
@@ -14,7 +17,7 @@ const TopITCompany = () => {
         .then(res => res.json())
         .then(data => setTopForeignIts(data))
     },[])
-    console.log(topBdIts);
+    // console.log(topBdIts);
     return (
         <div className="max-w-7xl mx-auto p-10">
             <div className="mb-10">
